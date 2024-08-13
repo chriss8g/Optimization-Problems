@@ -1,0 +1,70 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{hyperref}
+
+\title{Algoritmos para minimizar funciones}
+\author{Amanda Cordero Lezcano\\Christopher Guerra Herrero}
+\date{Septiembre, 2024}
+
+\begin{document}
+	
+	\maketitle
+	
+	\tableofcontents
+	\newpage
+	
+	\section{Quartic Function(Amanda)}
+	
+	\fbox{
+		\begin{minipage}{\textwidth}
+			
+	\textbf{100. Quartic Function \cite{reference81}} (Continuous, Differentiable, Separable, Scalable)
+	
+	\[
+	f_{100}(\mathbf{x}) = \sum_{i=1}^{D} i x_i^4 + \text{random}[0,1)
+	\]
+	
+	subject to \(-1.28 \leq x_i \leq 1.28\). The global minima is located at \(\mathbf{x}^* = \mathbf{f}(0,\cdots,0)\), \(f(\mathbf{x}^*) = 0\).
+	
+	\end{minipage}
+	}
+	
+	\section{Sargan Function(Christopher)}
+	
+	El ejercicio asignado al estudiante fue:
+	
+	\vspace*{1cm}
+	
+	\fbox{
+		\begin{minipage}{\textwidth}
+			\textbf{111. Sargan Function \cite{reference29}} (Continuous, Differentiable, Non-Separable, Scalable, Multi-modal)
+			
+			\[
+			f_{111}(\mathbf{x}) = \sum_{i=1}D \left( x_i^2 + 0.4 \sum_{\substack{j\neq 1}} x_i x_j \right)
+			\]
+			
+			subject to \(-100 \leq x_i \leq 100\). The global minimum is located at \(\mathbf{x}^* = \mathbf{f}(0,\cdots,0)\), \(f(\mathbf{x}^*) = 0\).
+		\end{minipage}
+	}
+	
+	\vspace*{1cm}
+	
+	Sin embargo al hacer un análisis de la bibliografía \cite{reference29} se dedujo que hubo un error al transcribir la función, siendo esta:
+	
+	$$
+	f(\mathbf{x}) = \sum_{i=1}^D \left(x_1^2 + 0.4 \sum_{\substack{i\neq j}} x_i x_j\right)
+	$$
+	
+	
+	\newpage
+	
+	\begin{thebibliography}{9}
+		
+		\bibitem{reference29} L. C. W. Dixon, G. P. Szegö (eds.), \textit{Towards Global Optimization 2}, Elsevier, 1978.
+		
+		\bibitem{reference81} R. Storn, K. Price, \textit{Differential Evolution - A Simple and Efficient Adaptive Scheme for Global Optimization over Continuous Spaces}, Technical Report no. TR-95-012, International Computer Science Institute, Berkeley, CA, 1996. [Available Online]: \url{http://www1.icsi.berkeley.edu/~storn/TR-95-012.pdf}
+		
+		
+	\end{thebibliography}
+	
+\end{document}
