@@ -111,12 +111,77 @@
 	
 	\vspace*{1cm}
 	
-	Sin embargo al hacer un análisis de la bibliografía \cite{reference29} y previa consulta con el profesora de conferencia, se determinó que hubo un error al transcribir la función, siendo esta:
+	Sin embargo al hacer un análisis de la bibliografía \cite{reference29} y previa consulta con la profesora de conferencia, se determinó que hubo un error al transcribir la función, siendo esta:
 	
 	$$
-	f(\mathbf{x}) = \sum_{i=1}^D \left(x_1^2 + 0.4 \sum_{\substack{i\neq j}} x_i x_j\right)
+	f(\mathbf{x}) = \sum_{i=1}^D \left(x_i^2 + 0.4 \sum_{\substack{i\neq j}} x_i x_j\right)
 	$$
 	
+	El método utilizado para la minimización fue el algoritmo de BFGS (Broyden-Fletcher-Goldfarb-Shanno), un método de optimización Quasi-Newton que utiliza aproximaciones de la matriz Hessiana y evita el cálculo explícito de la matriz de segundas derivadas.
+	
+	\subsection{Algoritmo de Solución}
+	
+	El algoritmo BFGS fue implementado utilizando la biblioteca \textit{SciPy}. A continuación se presenta el código utilizado para la minimización:
+	
+	\begin{verbatim}
+		import numpy as np
+		import scipy.optimize as spo
+		
+		# Definimos la función objetivo corregida
+		def f(x):
+			D = len(x)
+			sum_square_terms = sum(x[i]**2 for i in range(D))
+			sum_cross_terms = 0.4 * sum(x[i] * x[j] for i in range(D) for j in range(D) if i != j) 
+			return sum_square_terms + sum_cross_terms
+		
+		# Definimos un punto inicial
+		x0 = [50, 20, -30, 40]  # Punto inicial
+		
+		# Minimización usando el método BFGS
+		result = spo.minimize(f, x0, method='BFGS', tol=1.e-8, options={'maxiter': 100})
+		
+		# Mostramos los resultados
+		print('Punto encontrado: ', result.x)
+		print('Valor mínimo de la función: ', result.fun)
+		print('Número de iteraciones: ', result.nit)
+		print('Resultado exitoso: ', result.success)
+		print('Mensaje del resultado: ', result.message)
+	\end{verbatim}
+	
+	El método BFGS minimiza la función objetivo mediante una aproximación sucesiva de la matriz Hessiana basada en las diferencias entre gradientes, lo que lo hace más eficiente que el Método de Newton en cuanto a uso de memoria y tiempo de cómputo, especialmente para problemas de alta dimensionalidad.
+	
+	\subsection{Resultados}
+	
+	El algoritmo fue ejecutado con un punto inicial \(\mathbf{x}_0 = [50, 20, -30, 40]\), y tras 8 iteraciones, alcanzó el siguiente punto:
+	
+	\[
+	\mathbf{x} = [2.73 \times 10^{-9}, -2.95 \times 10^{-9}, -2.56 \times 10^{-9}, -1.10 \times 10^{-8}]
+	\]
+	
+	El valor mínimo de la función en este punto es:
+	
+	\[
+	f(\mathbf{x}) = 1.617 \times 10^{-16}
+	\]
+	
+	El resultado indica que el método BFGS ha convergido exitosamente al mínimo global de la función, con un error numérico despreciable.
+	
+	
+	\subsection{Evaluación de la Calidad del Punto Hallado}
+	
+	El punto hallado \(\mathbf{x} \approx 0\) es muy cercano al mínimo teórico conocido \(\mathbf{x}^* = 0\), lo que valida la precisión del método. Además, el valor de la función en este punto es prácticamente cero, como se esperaba. 
+	
+	El tiempo computacional y el número de iteraciones (8 iteraciones) fueron bajos, lo que indica la eficiencia del método BFGS para este tipo de problemas.
+	
+	\subsection{Evaluación del Tiempo Computacional y Complejidad}
+	
+	La complejidad computacional del método BFGS es \(O(n^2)\), donde \(n\) es la dimensión del problema, debido a las operaciones con la aproximación de la matriz Hessiana. Sin embargo, a diferencia del método de Newton que requiere \(O(n^3)\) para invertir la Hessiana, BFGS proporciona una solución más eficiente sin necesidad de almacenar la matriz completa, lo que lo hace adecuado para problemas de moderada dimensionalidad.
+	
+	En este caso, el problema fue resuelto en solo 8 iteraciones, lo que demuestra su escalabilidad.
+	
+	\subsection{Segundas Conclusiones}
+	
+	El algoritmo de BFGS se mostró altamente efectivo para encontrar el mínimo global de la función cuadrática generalizada, con un número reducido de iteraciones y resultados precisos. El punto encontrado \(\mathbf{x} \approx 0\) y el valor mínimo \(f(\mathbf{x}) \approx 0\) validan la convergencia del método al mínimo global esperado. La complejidad algorítmica \(O(n^2)\) y el uso eficiente de la aproximación de la Hessiana hacen de BFGS una herramienta recomendada para este tipo de problemas.
 	
 	\newpage
 	
