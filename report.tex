@@ -26,11 +26,11 @@
 			
 	\textbf{100. Quartic Function \cite{reference81}} (Continuous, Differentiable, Separable, Scalable)
 	
-	\[
+	$$
 	f_{100}(\mathbf{x}) = \sum_{i=1}^{D} i x_i^4 + \text{random}[0,1)
-	\]
+	$$
 	
-	subject to \(-1.28 \leq x_i \leq 1.28\). The global minima is located at \(\mathbf{x}^* = \mathbf{f}(0,\cdots,0)\), \(f(\mathbf{x}^*) = 0\).
+	subject to $-1.28 \leq x_i \leq 1.28$. The global minima is located at $\mathbf{x}^* = \mathbf{f}(0,\cdots,0)$, $f(\mathbf{x}^*) = 0$.
 	
 	\end{minipage}
 	}
@@ -58,15 +58,15 @@
 			return x
 	\end{verbatim}
 	
-	El algoritmo minimiza la función \(f(\mathbf{x})\) en la dirección del gradiente negativo, actualizando la posición en cada iteración.
+	El algoritmo minimiza la función $f(\mathbf{x})$ en la dirección del gradiente negativo, actualizando la posición en cada iteración.
 	
 	\subsection{Resultados}
 	
-	El algoritmo fue ejecutado con un punto inicial \(\mathbf{x}_0 = [1, -1]\) y un máximo de 10 iteraciones. El punto encontrado por el algoritmo fue:
+	El algoritmo fue ejecutado con un punto inicial $\mathbf{x}_0 = [1, -1]$ y un máximo de 10 iteraciones. El punto encontrado por el algoritmo fue:
 	
-	\[
+	$$
 	\mathbf{x} =  [-0.07989805 -0.05553555]
-	\]
+	$$
 	
 	La solución gráfica del proceso de minimización es la siguiente:
 	
@@ -79,16 +79,16 @@
 	
 	\subsection{Valoración de la Calidad del Punto Hallado}
 	
-	El punto hallado \(\mathbf{x} = [0.09226378, 0.07302666]\) se encuentra cercano al mínimo global \(\mathbf{x}^* = [0, 0]\). Si bien no se alcanzó el mínimo exacto en las 10 iteraciones, la función fue evaluada como 0.025 al considerar la adición del valor aleatorio. Este resultado indica que el algoritmo se aproxima bastante al valor óptimo.
+	El punto hallado $\mathbf{x} = [0.09226378, 0.07302666]$ se encuentra cercano al mínimo global $\mathbf{x}^* = [0, 0]$. Si bien no se alcanzó el mínimo exacto en las 10 iteraciones, la función fue evaluada como 0.025 al considerar la adición del valor aleatorio. Este resultado indica que el algoritmo se aproxima bastante al valor óptimo.
 	
 	\subsection{Evaluación del Tiempo Computacional}
 	
-	El tiempo computacional para la ejecución del algoritmo fue aceptable en un problema de dos dimensiones. La complejidad algorítmica del método está determinada principalmente por el cálculo del gradiente, el cual tiene una complejidad de \(O(D)\), donde \(D\) es la dimensión del problema. Esto implica que, a medida que \(D\) aumenta, el tiempo de cómputo crece linealmente con respecto a la dimensión. A pesar de la presencia de un componente aleatorio en la función objetivo, el algoritmo mantiene un comportamiento predecible en términos de complejidad, lo que garantiza su escalabilidad en problemas de mayor dimensión.
+	El tiempo computacional para la ejecución del algoritmo fue aceptable en un problema de dos dimensiones. La complejidad algorítmica del método está determinada principalmente por el cálculo del gradiente, el cual tiene una complejidad de $O(D)$, donde $D$ es la dimensión del problema. Esto implica que, a medida que $D$ aumenta, el tiempo de cómputo crece linealmente con respecto a la dimensión. A pesar de la presencia de un componente aleatorio en la función objetivo, el algoritmo mantiene un comportamiento predecible en términos de complejidad, lo que garantiza su escalabilidad en problemas de mayor dimensión.
 	
 	
 	\subsection{Variación al Aumentar la Dimensión del Problema}
 	
-	La función cuártica es escalable, y el aumento de la dimensión \(D\) implicará un incremento lineal en la cantidad de términos a sumar y, por ende, en el tiempo necesario para evaluar tanto la función como su gradiente.
+	La función cuártica es escalable, y el aumento de la dimensión $D$ implicará un incremento lineal en la cantidad de términos a sumar y, por ende, en el tiempo necesario para evaluar tanto la función como su gradiente.
 	
 	\subsection{Primeras Conclusiones}
 	
@@ -106,11 +106,11 @@
 		\begin{minipage}{\textwidth}
 			\textbf{111. Sargan Function \cite{reference29}} (Continuous, Differentiable, Non-Separable, Scalable, Multi-modal)
 			
-			\[
+			$$
 			f_{111}(\mathbf{x}) = \sum_{i=1}D \left( x_i^2 + 0.4 \sum_{\substack{j\neq 1}} x_i x_j \right)
-			\]
+			$$
 			
-			subject to \(-100 \leq x_i \leq 100\). The global minimum is located at \(\mathbf{x}^* = \mathbf{f}(0,\cdots,0)\), \(f(\mathbf{x}^*) = 0\).
+			subject to $-100 \leq x_i \leq 100$. The global minimum is located at $\mathbf{x}^* = \mathbf{f}(0,\cdots,0)$, $f(\mathbf{x}^*) = 0$.
 		\end{minipage}
 	}
 	
@@ -157,36 +157,36 @@
 	
 	\subsection{Resultados}
 	
-	El algoritmo fue ejecutado con un punto inicial \(\mathbf{x}_0 = [50, 20, -30, 40]\), y tras 8 iteraciones, alcanzó el siguiente punto:
+	El algoritmo fue ejecutado con un punto inicial $\mathbf{x}_0 = [50, 20, -30, 40]$, y tras 8 iteraciones, alcanzó el siguiente punto:
 	
-	\[
+	$$
 	\mathbf{x} = [2.73 \times 10^{-9}, -2.95 \times 10^{-9}, -2.56 \times 10^{-9}, -1.10 \times 10^{-8}]
-	\]
+	$$
 	
 	El valor mínimo de la función en este punto es:
 	
-	\[
+	$$
 	f(\mathbf{x}) = 1.617 \times 10^{-16}
-	\]
+	$$
 	
 	El resultado indica que el método BFGS ha convergido exitosamente al mínimo global de la función, con un error numérico despreciable.
 	
 	
 	\subsection{Evaluación de la Calidad del Punto Hallado}
 	
-	El punto hallado \(\mathbf{x} \approx 0\) es muy cercano al mínimo teórico conocido \(\mathbf{x}^* = 0\), lo que valida la precisión del método. Además, el valor de la función en este punto es prácticamente cero, como se esperaba. 
+	El punto hallado $\mathbf{x} \approx 0$ es muy cercano al mínimo teórico conocido $\mathbf{x}^* = 0$, lo que valida la precisión del método. Además, el valor de la función en este punto es prácticamente cero, como se esperaba. 
 	
 	El tiempo computacional y el número de iteraciones (8 iteraciones) fueron bajos, lo que indica la eficiencia del método BFGS para este tipo de problemas.
 	
 	\subsection{Evaluación del Tiempo Computacional y Complejidad}
 	
-	La complejidad computacional del método BFGS es \(O(n^2)\), donde \(n\) es la dimensión del problema, debido a las operaciones con la aproximación de la matriz Hessiana. Sin embargo, a diferencia del método de Newton que requiere \(O(n^3)\) para invertir la Hessiana, BFGS proporciona una solución más eficiente sin necesidad de almacenar la matriz completa, lo que lo hace adecuado para problemas de moderada dimensionalidad.
+	La complejidad computacional del método BFGS es $O(n^2)$, donde $n$ es la dimensión del problema, debido a las operaciones con la aproximación de la matriz Hessiana. Sin embargo, a diferencia del método de Newton que requiere $O(n^3)$ para invertir la Hessiana, BFGS proporciona una solución más eficiente sin necesidad de almacenar la matriz completa, lo que lo hace adecuado para problemas de moderada dimensionalidad.
 	
 	En este caso, el problema fue resuelto en solo 8 iteraciones, lo que demuestra su escalabilidad.
 	
 	\subsection{Segundas Conclusiones}
 	
-	El algoritmo de BFGS se mostró altamente efectivo para encontrar el mínimo global de la función cuadrática generalizada, con un número reducido de iteraciones y resultados precisos. El punto encontrado \(\mathbf{x} \approx 0\) y el valor mínimo \(f(\mathbf{x}) \approx 0\) validan la convergencia del método al mínimo global esperado. La complejidad algorítmica \(O(n^2)\) y el uso eficiente de la aproximación de la Hessiana hacen de BFGS una herramienta recomendada para este tipo de problemas.
+	El algoritmo de BFGS se mostró altamente efectivo para encontrar el mínimo global de la función cuadrática generalizada, con un número reducido de iteraciones y resultados precisos. El punto encontrado $\mathbf{x} \approx 0$ y el valor mínimo $f(\mathbf{x}) \approx 0$ validan la convergencia del método al mínimo global esperado. La complejidad algorítmica $O(n^2)$ y el uso eficiente de la aproximación de la Hessiana hacen de BFGS una herramienta recomendada para este tipo de problemas.
 	
 	\section{Conclusiones Finales}
 	
@@ -195,9 +195,9 @@
 	Los resultados obtenidos permiten destacar varias observaciones clave:
 	
 	\begin{itemize}
-		\item El \textit{Descenso más Pronunciado} se mostró eficiente en problemas de baja dimensión como el caso de \(D=2\), pero su tasa de convergencia fue limitada por el componente aleatorio, lo que impidió alcanzar el mínimo global exacto en las iteraciones realizadas.
+		\item El \textit{Descenso más Pronunciado} se mostró eficiente en problemas de baja dimensión como el caso de $D=2$, pero su tasa de convergencia fue limitada por el componente aleatorio, lo que impidió alcanzar el mínimo global exacto en las iteraciones realizadas.
 		\item El método \textit{BFGS}, al utilizar aproximaciones de la matriz Hessiana, demostró ser altamente eficiente para la minimización de la \textit{Sargan Function}. En tan solo 8 iteraciones, el algoritmo alcanzó el mínimo global con un error numérico despreciable y una evaluación de la función cercana a cero, confirmando su rápida convergencia.
-		\item En cuanto al tiempo computacional, ambos métodos mostraron un comportamiento predecible en términos de complejidad, siendo \(O(n^2)\) en el caso de BFGS, lo que lo hace adecuado para problemas de moderada dimensionalidad. En el caso del \textit{Descenso más Pronunciado}, la complejidad es más baja \(O(D)\), pero su eficiencia disminuye en comparación con BFGS cuando se requiere mayor precisión.
+		\item En cuanto al tiempo computacional, ambos métodos mostraron un comportamiento predecible en términos de complejidad, siendo $O(n^2)$ en el caso de BFGS, lo que lo hace adecuado para problemas de moderada dimensionalidad. En el caso del \textit{Descenso más Pronunciado}, la complejidad es más baja $O(D)$, pero su eficiencia disminuye en comparación con BFGS cuando se requiere mayor precisión.
 		\item La presencia de componentes aleatorios en la función \textit{Quartic Function} puede introducir variabilidad en los resultados, lo que hace que sea más difícil alcanzar el mínimo exacto, pero el método utilizado se aproximó bastante al valor óptimo.
 	\end{itemize}
 	
