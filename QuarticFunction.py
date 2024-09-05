@@ -32,7 +32,7 @@ def steepestdescent(f, df, x0, tol=1.e-8, maxit=50):
     
     return x
 
-x0 = np.array([1, -1])
+x0 = np.array([1, -1, 0.5, 0.3, -0.4, 0.8, 1.4])
 trajectory = steepestdescent(f, df, x0, tol=1.e-8, maxit=10)
 print('x = ', trajectory[-1])
 
