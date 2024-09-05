@@ -14,6 +14,11 @@
 	\tableofcontents
 	\newpage
 	
+	\section{Introducción}
+	
+	La optimización de funciones es un área fundamental en el campo de la matemática aplicada y la computación científica. En este informe, abordamos la minimización de dos funciones: la \textit{Quartic Function} y la \textit{Sargan Function}, utilizando distintos métodos de optimización.
+	
+	
 	\section{Quartic Function(Amanda)}
 	
 	\fbox{
@@ -182,6 +187,21 @@
 	\subsection{Segundas Conclusiones}
 	
 	El algoritmo de BFGS se mostró altamente efectivo para encontrar el mínimo global de la función cuadrática generalizada, con un número reducido de iteraciones y resultados precisos. El punto encontrado \(\mathbf{x} \approx 0\) y el valor mínimo \(f(\mathbf{x}) \approx 0\) validan la convergencia del método al mínimo global esperado. La complejidad algorítmica \(O(n^2)\) y el uso eficiente de la aproximación de la Hessiana hacen de BFGS una herramienta recomendada para este tipo de problemas.
+	
+	\section{Conclusiones Finales}
+	
+	En este trabajo, se implementaron y evaluaron diferentes algoritmos para la minimización de funciones, específicamente la \textit{Quartic Function} y la \textit{Sargan Function}. Se utilizaron dos enfoques de optimización distintos: el método de \textit{Descenso más Pronunciado} (Steepest Descent) para la \textit{Quartic Function} y el método \textit{BFGS} (Broyden-Fletcher-Goldfarb-Shanno) para la \textit{Sargan Function}.
+	
+	Los resultados obtenidos permiten destacar varias observaciones clave:
+	
+	\begin{itemize}
+		\item El \textit{Descenso más Pronunciado} se mostró eficiente en problemas de baja dimensión como el caso de \(D=2\), pero su tasa de convergencia fue limitada por el componente aleatorio, lo que impidió alcanzar el mínimo global exacto en las iteraciones realizadas.
+		\item El método \textit{BFGS}, al utilizar aproximaciones de la matriz Hessiana, demostró ser altamente eficiente para la minimización de la \textit{Sargan Function}. En tan solo 8 iteraciones, el algoritmo alcanzó el mínimo global con un error numérico despreciable y una evaluación de la función cercana a cero, confirmando su rápida convergencia.
+		\item En cuanto al tiempo computacional, ambos métodos mostraron un comportamiento predecible en términos de complejidad, siendo \(O(n^2)\) en el caso de BFGS, lo que lo hace adecuado para problemas de moderada dimensionalidad. En el caso del \textit{Descenso más Pronunciado}, la complejidad es más baja \(O(D)\), pero su eficiencia disminuye en comparación con BFGS cuando se requiere mayor precisión.
+		\item La presencia de componentes aleatorios en la función \textit{Quartic Function} puede introducir variabilidad en los resultados, lo que hace que sea más difícil alcanzar el mínimo exacto, pero el método utilizado se aproximó bastante al valor óptimo.
+	\end{itemize}
+	
+	En general, el trabajo realizado muestra que la selección del algoritmo de optimización debe tener en cuenta la naturaleza de la función a minimizar y la dimensionalidad del problema. Mientras que métodos más simples como el \textit{Descenso más Pronunciado} pueden ser suficientes en problemas de baja dimensión, algoritmos más avanzados como \textit{BFGS} son preferibles cuando se busca una mayor eficiencia y precisión, especialmente en problemas de mayor escala.
 	
 	\newpage
 	
